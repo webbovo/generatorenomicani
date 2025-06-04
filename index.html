@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -115,8 +114,17 @@
 
       try {
         const lista = nomi[sesso][taglia][colore][personalita];
-        const nome = lista[Math.floor(Math.random() * lista.length)];
-        document.getElementById("output").textContent = `Nome suggerito: ${nome}`;
+        const nomiEstratti = [];
+
+        while (nomiEstratti.length < 3 && lista.length > nomiEstratti.length) {
+          const randomIndex = Math.floor(Math.random() * lista.length);
+          const nome = lista[randomIndex];
+          if (!nomiEstratti.includes(nome)) {
+            nomiEstratti.push(nome);
+          }
+        }
+
+        document.getElementById("output").textContent = `Nomi suggeriti: ${nomiEstratti.join(", ")}`;
       } catch {
         document.getElementById("output").textContent = "Nessun nome disponibile per questa combinazione 😢";
       }
