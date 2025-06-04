@@ -1,0 +1,1002 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generatore di Nomi per Cani</title>
+  <meta name="description" content="Genera il nome perfetto per il tuo cane in base a sesso, taglia, colore e personalità. Gratis e divertente!" />
+  <meta name="keywords" content="nomi per cani, generatore nomi cani, nomi cuccioli, nomi cane maschio femmina" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f8f8f8;
+    }
+    h1 {
+      color: #333;
+    }
+    select, button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #0077cc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generatore di Nomi per Cani 🐶</h1>
+  <p>Scegli le caratteristiche del tuo cane e scopri il nome perfetto!</p>
+
+  <select id="sesso">
+    <option value="">Seleziona sesso</option>
+    <option value="Maschio">Maschio</option>
+    <option value="Femmina">Femmina</option>
+  </select>
+
+  <select id="taglia">
+    <option value="">Seleziona taglia</option>
+    <option value="Piccola">Piccola</option>
+    <option value="Media">Media</option>
+    <option value="Grande">Grande</option>
+  </select>
+
+  <select id="colore">
+    <option value="">Seleziona colore</option>
+    <option value="Nero">Nero</option>
+    <option value="Bianco">Bianco</option>
+    <option value="Marrone">Marrone</option>
+    <option value="Pezzato">Pezzato</option>
+  </select>
+
+  <select id="personalita">
+    <option value="">Seleziona personalità</option>
+    <option value="Dolce">Dolce</option>
+    <option value="Giocherellone">Giocherellone</option>
+    <option value="Coraggioso">Coraggioso</option>
+    <option value="Elegante">Elegante</option>
+    <option value="Intelligente">Intelligente</option>
+    <option value="Leale">Leale</option>
+    <option value="Energico">Energico</option>
+  </select>
+
+  <br />
+  <button onclick="generaNome()">Genera Nome</button>
+
+  <div id="output"></div>
+
+  <script>
+    const nomi = {
+  "Maschio": {
+    "Piccola": {
+      "Nero": {
+        "Dolce": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Giocherellone": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Coraggioso": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Elegante": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Intelligente": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Leale": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Energico": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ]
+      },
+      "Bianco": {
+        "Dolce": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Giocherellone": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Coraggioso": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Elegante": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Intelligente": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Leale": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Energico": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ]
+      },
+      "Marrone": {
+        "Dolce": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Giocherellone": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Coraggioso": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Elegante": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Intelligente": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Leale": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Energico": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ]
+      },
+      "Pezzato": {
+        "Dolce": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Giocherellone": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Coraggioso": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Elegante": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Intelligente": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Leale": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Energico": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ]
+      }
+    },
+    "Media": {
+      "Nero": {
+        "Dolce": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Giocherellone": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Coraggioso": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Elegante": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Intelligente": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Leale": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Energico": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ]
+      },
+      "Bianco": {
+        "Dolce": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Giocherellone": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Coraggioso": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Elegante": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Intelligente": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Leale": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Energico": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ]
+      },
+      "Marrone": {
+        "Dolce": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Giocherellone": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Coraggioso": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Elegante": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Intelligente": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Leale": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Energico": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ]
+      },
+      "Pezzato": {
+        "Dolce": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Giocherellone": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Coraggioso": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Elegante": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Intelligente": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Leale": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Energico": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ]
+      }
+    },
+    "Grande": {
+      "Nero": {
+        "Dolce": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Giocherellone": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Coraggioso": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Elegante": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Intelligente": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Leale": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Energico": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ]
+      },
+      "Bianco": {
+        "Dolce": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Giocherellone": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Coraggioso": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Elegante": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Intelligente": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Leale": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Energico": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ]
+      },
+      "Marrone": {
+        "Dolce": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Giocherellone": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Coraggioso": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Elegante": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Intelligente": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Leale": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Energico": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ]
+      },
+      "Pezzato": {
+        "Dolce": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Giocherellone": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Coraggioso": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Elegante": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Intelligente": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Leale": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Energico": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ]
+      }
+    }
+  },
+  "Femmina": {
+    "Piccola": {
+      "Nero": {
+        "Dolce": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Giocherellone": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Coraggioso": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Elegante": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Intelligente": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Leale": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Energico": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ]
+      },
+      "Bianco": {
+        "Dolce": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Giocherellone": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Coraggioso": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Elegante": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Intelligente": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Leale": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Energico": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ]
+      },
+      "Marrone": {
+        "Dolce": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Giocherellone": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Coraggioso": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Elegante": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Intelligente": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Leale": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Energico": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ]
+      },
+      "Pezzato": {
+        "Dolce": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Giocherellone": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Coraggioso": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Elegante": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Intelligente": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Leale": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Energico": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ]
+      }
+    },
+    "Media": {
+      "Nero": {
+        "Dolce": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Giocherellone": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Coraggioso": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Elegante": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Intelligente": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Leale": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Energico": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ]
+      },
+      "Bianco": {
+        "Dolce": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Giocherellone": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Coraggioso": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Elegante": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Intelligente": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Leale": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Energico": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ]
+      },
+      "Marrone": {
+        "Dolce": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Giocherellone": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Coraggioso": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Elegante": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Intelligente": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Leale": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Energico": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ]
+      },
+      "Pezzato": {
+        "Dolce": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Giocherellone": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Coraggioso": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Elegante": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Intelligente": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Leale": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Energico": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ]
+      }
+    },
+    "Grande": {
+      "Nero": {
+        "Dolce": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Giocherellone": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Coraggioso": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Elegante": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Intelligente": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Leale": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Energico": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ]
+      },
+      "Bianco": {
+        "Dolce": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Giocherellone": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Coraggioso": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ],
+        "Elegante": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Intelligente": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Leale": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Energico": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ]
+      },
+      "Marrone": {
+        "Dolce": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Giocherellone": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Coraggioso": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ],
+        "Elegante": [
+          "Thor",
+          "Perla",
+          "Zippy"
+        ],
+        "Intelligente": [
+          "Ombra",
+          "Duke",
+          "Neve"
+        ],
+        "Leale": [
+          "Rex",
+          "Leo",
+          "Chanel"
+        ],
+        "Energico": [
+          "Nuvola",
+          "Spartaco",
+          "Stella"
+        ]
+      },
+      "Pezzato": {
+        "Dolce": [
+          "Jet",
+          "Bimba",
+          "Piuma"
+        ],
+        "Giocherellone": [
+          "Shadow",
+          "Pepe",
+          "Noir"
+        ],
+        "Coraggioso": [
+          "Fiona",
+          "Argo",
+          "Ziggy"
+        ],
+        "Elegante": [
+          "Mindy",
+          "Sissi",
+          "Daisy"
+        ],
+        "Intelligente": [
+          "Luna",
+          "Rocky",
+          "Zelda"
+        ],
+        "Leale": [
+          "Max",
+          "Cleo",
+          "Bruno"
+        ],
+        "Energico": [
+          "Lady",
+          "Bolt",
+          "Maya"
+        ]
+      }
+    }
+  }
+};
+
+    function generaNome() {
+      const sesso = document.getElementById("sesso").value;
+      const taglia = document.getElementById("taglia").value;
+      const colore = document.getElementById("colore").value;
+      const personalita = document.getElementById("personalita").value;
+
+      const lista = nomi[sesso][taglia][colore][personalita];
+
+      const estratti = [];
+      while (estratti.length < 3 && lista.length > estratti.length) {
+        const nome = lista[Math.floor(Math.random() * lista.length)];
+        if (!estratti.includes(nome)) {
+          estratti.push(nome);
+        }
+      }
+
+      document.getElementById("output").textContent = "Nomi suggeriti: " + estratti.join(", ");
+    }
+  </script>
+</body>
+</html>
